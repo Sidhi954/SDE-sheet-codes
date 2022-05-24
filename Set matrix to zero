@@ -1,0 +1,56 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+void setmatrixZero(vector<vector<int>>&m){
+    int row=m.size(),col=m[0].size();
+    for(int i=0;i<row;i++){
+        for(int j=0;j<col;j++){
+            if(m[i][j]==0){
+                int ind=i-1;
+                while(ind>=0){
+                    if(m[ind][j]!=0)
+                         m[ind][j]=-1;
+                    ind--;
+                }
+                ind=i+1;
+                while(ind<row){
+                    if(m[ind][j]!=0)
+                        m[ind][j]=-1;
+                    ind++;
+                }
+                ind=j-1;
+                while(ind>=0){
+                    if(m[i][ind]!=0)
+                        m[i][ind]=-1;
+                    ind--;
+                }
+                ind=j+1;
+                while(ind<col){
+                    if(m[i][ind]!=0)
+                        m[i][ind]=-1;
+                    ind++;
+                }
+            }
+        }
+    }
+    for(int i=0;i<row;i++){
+        for(int j=0;j<col;j++){
+            if(m[i][j]<=0)
+                m[i][j]=0;
+        }
+    }
+}
+
+int main() {
+    vector<vector<int>>arr;
+    arr={{1,1,1},{1,0,1},{1,1,1}};
+    setmatrixZero(arr);
+    std::cout << "Matrix after operation:"<<"\n";
+    for(int i=0;i<arr.size();i++){
+        for(int j=0;j<arr[0].size();j++){
+            std::cout<<arr[i][j]<<" ";
+        }
+        std::cout<<"\n";
+    }
+    return 0;
+}
