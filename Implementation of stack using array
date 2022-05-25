@@ -1,0 +1,67 @@
+#include <bits/stdc++.h>
+
+class Stack{
+    public:
+    int *arr;
+    int top;
+    int size;
+    Stack(int size){
+        this->size=size;
+        arr=new int[size];
+        top=-1;
+    }
+    void push(int element){
+        if(size-top>1){
+            top++;
+            arr[top]=element;
+        }
+        else
+            std::cout<<"Stack overflow"<<"\n";
+    }
+    void pop(){
+        if(top>=0)
+            top--;
+        else
+            std::cout<<"Stack underflow"<<"\n";
+    }
+    int peek(){
+        if(top>=0)
+            std::cout<<"Element at peek is:"<<arr[top]<<"\n";
+        else{
+            std::cout<<"Stack is empty"<<"\n";
+            return -1;
+        }
+    }
+    bool isEmpty(){
+        if(top==-1)
+            return true;
+        else
+            return false;
+    }
+};
+
+int main() {
+    Stack st(5);
+    st.push(11);
+    st.push(22);
+    st.push(33);
+    st.push(44);
+    st.push(55);
+    st.peek();
+    st.pop();
+    st.peek();
+    st.pop();
+    st.peek();
+    st.pop();
+    st.peek();
+    st.pop();
+    st.peek();
+    st.pop();
+    
+    if(st.isEmpty())
+        std::cout<<"Stack is empty"<<"\n";
+    else
+        std::cout<<"Stack is not empty";
+
+    return 0;
+}
