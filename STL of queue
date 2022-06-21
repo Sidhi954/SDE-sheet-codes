@@ -1,0 +1,22 @@
+#include <iostream>
+#include <queue>
+
+int main() {
+    std::queue<int>q;
+    q.push(4);
+    q.push(6);
+    q.push(8);
+    q.push(10);
+    std::cout<< "Size of queue is:"<<q.size()<<"\n";
+    std::cout << "Front of queue is:"<<q.front()<<"\n";
+    q.pop();
+    std::cout<< "Size of queue is:"<<q.size()<<"\n";
+    std::cout << "Front of queue is:"<<q.front()<<"\n";  
+    if(q.empty()){
+        std::cout<<"Queue is empty."<<"\n";
+    }
+    else{
+        std::cout<<"Queue is not empty.";
+    }
+    return 0;
+}
